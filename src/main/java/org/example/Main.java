@@ -98,7 +98,7 @@ public class Main {
         System.out.println("Sorted all subjects by average grades given to students:");
         subjects.stream().map(subject -> new AbstractMap.SimpleEntry<>(
                         subject.getSubjectName(),
-                        subject.getMapOfStudents().values().stream().mapToInt(Integer::intValue).average().orElse(0.0)
+                        subject.getStudentGrades().values().stream().mapToInt(Integer::intValue).average().orElse(0.0)
                 ))
                 .sorted(Map.Entry.<String, Double>comparingByValue())
                 .forEach(entry -> System.out.printf("%s - %.2f%n", entry.getKey(), entry.getValue()));

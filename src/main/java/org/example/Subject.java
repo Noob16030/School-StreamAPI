@@ -8,7 +8,7 @@ public class Subject {
     private final Teacher teacher;
     public Map<Student, Integer> studentGrades;
 
-    public Map<Student, Integer> getMapOfStudents() {
+    public Map<Student, Integer> getStudentGrades() {
         return studentGrades;
     }
 

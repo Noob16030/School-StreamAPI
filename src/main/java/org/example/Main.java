@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        // Povytvaram vsetky entyty
         Teacher teacherAnton = new Teacher("Anton The Teacher");
         Teacher teacherPavel = new Teacher("Pavel Big Teacher");
 
@@ -23,7 +24,7 @@ public class Main {
         Student studentKamil = new Student("Kamil");
         Student studentPeter = new Student("Peter");
 
-
+        // Pridam studentov do tried, vdaka vzajomnim vztahom
         addStudentToClass(studentJan, clazz1A);
         addStudentToClass(studentMaria, clazz1A);
         addStudentToClass(studentStefan, clazz1A);
@@ -32,6 +33,7 @@ public class Main {
         addStudentToClass(studentKamil, clazz2B);
         addStudentToClass(studentPeter, clazz2B);
 
+        // Pridam predmety studentom, vdaka vzajomnim vztahom
         addSubjectToStudent(studentJan, subjectRunning, 1);
         addSubjectToStudent(studentJan, subjectMath, 2);
         addSubjectToStudent(studentJan, subjectPhysics, 2);
@@ -59,20 +61,21 @@ public class Main {
         // Skontrolujem, ci kazdy student ma aspon 3 predmety
         controlCountOfSubjects(clazz1A);
         controlCountOfSubjects(clazz2B);
+
         // vypisem znamky vsetkych studentov v triedach
         clazz1A.studentsByAverageGrade();
         clazz2B.studentsByAverageGrade();
 
+        // Vypisem vsetkych studentov a ich priemerne znamky, zoradene
         List<Student> allStudents = List.of(studentJan, studentKamil, studentMaria, studentMiroslav, studentStefan, studentPeter);
-
         allStudentsByAverageGrade(allStudents);
 
+        // Vypisem vsetky predmety a ich priemerne znamky, zoradene
         List<Subject> allSubjects = List.of(subjectHistory, subjectRunning, subjectPhysics, subjectMath, subjectProgramming);
-
         allSubjectsByAverageGrade(allSubjects);
 
+        // Vypisem vsetkych triedy podla priemernej znamky ziakov v triede, zoradene
         List<Clazz> school = List.of(clazz1A, clazz2B);
-
         allClassesByAverageGrade(school);
 
 
@@ -131,20 +134,11 @@ public class Main {
 //---------------------------------------------------------------------------------------
 class Teacher{
     private final String teacherName;
-    private Clazz clazz;
-
-
-    public Clazz getClazz() {
-        return clazz;
-    }
 
     public Teacher(String teacherName) {
         this.teacherName = teacherName;
     }
 
-    public String getTeacherName() {
-        return teacherName;
-    }
 }
 //---------------------------------------------------------------------------------------
 class Student{
@@ -183,11 +177,6 @@ class Clazz{
     private final String clazzName;
     private final Teacher teacher;
     public List<Student> students;
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
 
     public List<Student> getStudents() {
         return students;
@@ -231,11 +220,6 @@ class Subject{
     public Map<Student, Integer> getMapOfStudents() {
         return mapOfStudents;
     }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
 
     public Subject(String subjectName, Teacher teacher) {
         this.subjectName = subjectName;
